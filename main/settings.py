@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'cloudinary',
     'cloudinary_storage',
+    "drf_spectacular",
 
     'tours'
 ]
@@ -137,3 +138,16 @@ CLOUDINARY_STORAGE = {
 }
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+REST_FRAMEWORK = {
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema"
+}
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "NeoTour Project",
+    "DESCRIPTION": "NeoTour is an optimized application designed for convenient tour booking.",
+    "VERSION": "1.0.0",
+    # OTHER SETTINGS
+}
+
+
