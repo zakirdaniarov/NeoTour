@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 import os
 from pathlib import Path
+import cloudinary_storage
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure--o8jb$!_g4rdg&fl-soi9b=)u^g^(5xl#1&37_gpcj@56k7n$p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['206.189.84.90', 'muha-backender.org.kg']
+ALLOWED_HOSTS = ['206.189.84.90', 'muha-backender.org.kg', '127.0.0.1']
 
 
 # Application definition
@@ -39,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
+    'cloudinary',
+    'cloudinary_storage',
 
     'tours'
 ]
@@ -126,3 +129,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles/")
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'duozhz9eq',
+    'API_KEY': '713347289714392',
+    'API_SECRET': 'aVBAuEFC9MEbee1oI9b55G5gD-0'
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
