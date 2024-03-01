@@ -28,7 +28,15 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['206.189.84.90', 'muha-backender.org.kg', '127.0.0.1']
 
+CORS_ALLOWED_ORIGINS = (
+    'http://localhost:3000',
+    'http://localhost:8000',
+    'https://muha-backender.org.kg',
+    'http://localhost:5173',
+)
 
+CSRF_TRUSTED_ORIGINS = ['http://localhost:3000', 'http://localhost:5173',
+                        'http://localhost:8000', 'https://muha-backender.org.kg',]
 # Application definition
 
 INSTALLED_APPS = [
