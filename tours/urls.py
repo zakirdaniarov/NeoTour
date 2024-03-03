@@ -9,7 +9,9 @@ urlpatterns = [
     path('detailed-tours/', ToursListDetailAPIView.as_view(), name='tours'),
     path('detailed-tours/recommended', RecommendedToursListDetailAPIView.as_view(), name='recommended_tours'),
     path('tours/seasons', RecommendedToursListBySeasonAPIView.as_view(), name='recommended_tours'),
-    path('tours/<int:pk>', TourInfoReservationAPIView.as_view(), name='tour_info'),
-    path('tours/<int:pk>/reviews', ReviewListCreateAPIView.as_view(), name='tour_reviews'),
+    path('tours/<int:pk>', TourInfoAPIView.as_view(), name='tour_info'),
+    path('tours/<int:pk>/reserve', TourReservationAPIView.as_view(), name='tour_reserve'),
+    path('tours/<int:pk>/reviews', ReviewListAPIView.as_view(), name='tour_reviews'),
+    path('tours/<int:pk>/create-review', ReviewCreateAPIView.as_view(), name='tour_create-review'),
     path('tours/<int:pk>/reservations', TourReservationsListAPIView.as_view(), name='tour_reservations'),
 ]

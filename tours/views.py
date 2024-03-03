@@ -113,7 +113,7 @@ class RecommendedToursListDetailAPIView(APIView):
         return Response(content, status=status.HTTP_200_OK)
 
 
-class TourInfoReservationAPIView(APIView):
+class TourInfoAPIView(APIView):
     @extend_schema(
             summary="Displaying detailed information about the tour",
             description="This endpoint allows you to get detailed information about the tour: name, image,"
@@ -131,6 +131,8 @@ class TourInfoReservationAPIView(APIView):
                    "Reviews": review_api.data,}
         return Response(content, status=status.HTTP_200_OK)
 
+
+class TourReservationAPIView(APIView):
     @extend_schema(
             summary="Posting reservation information",
             description="This endpoint allows you to reserve a tour using a phone number and showing the number of people",
@@ -159,7 +161,7 @@ class TourReservationsListAPIView(APIView):
             return Response(content, status=status.HTTP_200_OK)
 
 
-class ReviewListCreateAPIView(APIView):
+class ReviewListAPIView(APIView):
     @extend_schema(
             summary="Displaying lists of reviews for each tour",
             description="This endpoint allows you to get information about reviews for each tour",
@@ -171,6 +173,8 @@ class ReviewListCreateAPIView(APIView):
         content = {"Reviews": reviews_api.data}
         return Response(content, status=status.HTTP_200_OK)
 
+
+class ReviewCreateAPIView(APIView):
     @extend_schema(
             summary="Posting a tour review",
             description="This endpoint allows you to post a tour review",
@@ -184,6 +188,7 @@ class ReviewListCreateAPIView(APIView):
                             status=status.HTTP_201_CREATED)
         return Response({"error": serializer.errors, "message": "There is an error"},
                         status=status.HTTP_400_BAD_REQUEST)
+
 
 
 
