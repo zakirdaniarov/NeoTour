@@ -14,6 +14,12 @@ class TourListAPI(ModelSerializer):
         fields = ['name', 'category', 'image', 'location']
 
 
+class TourListDetailAPI(ModelSerializer):
+    class Meta:
+        model = Tours
+        fields = ['id', 'name', 'category', 'image', 'description', 'location']
+
+
 class RecommendedTourListAPI(ModelSerializer):
     class Meta:
         model = Tours
