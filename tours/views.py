@@ -76,6 +76,43 @@ class RecommendedToursListBySeasonAPIView(APIView):
         return Response(content, status=status.HTTP_200_OK)
 
 
+class ToursListDetailAPIView(APIView):
+    @extend_schema(
+            summary="Displaying lists of tours with description and reviews",
+            description="This endpoint allows you to get information about all the tours with description and reviews",
+    )
+    def get(self, request, *args, **kwargs):
+        tours = Tours.objects.all()
+        data_list = []
+        for tour in tours:
+            tour_api = TourListDetailAPI(tour)
+            reviews = tour.reviews.all()
+            review_api = ReviewListAPI(reviews, many=True)
+            data = {"Tour Info": tour_api.data,
+                       "Reviews": review_api.data,}
+            data_list.append(data)
+        content = {"All Tours": data_list}
+        return Response(content, status=status.HTTP_200_OK)
+
+class RecommendedToursListDetailAPIView(APIView):
+    @extend_schema(
+            summary="Displaying lists of Recommended tours with description and reviews",
+            description="This endpoint allows you to get information about the Recommended tours with description and reviews",
+    )
+    def get(self, request, *args, **kwargs):
+        tours = Tours.objects.all().filter(is_recommended=True)
+        data_list = []
+        for tour in tours:
+            tour_api = TourListDetailAPI(tour)
+            reviews = tour.reviews.all()
+            review_api = ReviewListAPI(reviews, many=True)
+            data = {"Tour Info": tour_api.data,
+                       "Reviews": review_api.data,}
+            data_list.append(data)
+        content = {"Recommended Tours": data_list}
+        return Response(content, status=status.HTTP_200_OK)
+
+
 class TourInfoReservationAPIView(APIView):
     @extend_schema(
             summary="Displaying detailed information about the tour",
