@@ -5,13 +5,13 @@ from .models import *
 class CategoryListAPI(ModelSerializer):
     class Meta:
         model = TourCategories
-        fields = ['name']
+        fields = ['id', 'name']
 
 
 class TourListAPI(ModelSerializer):
     class Meta:
         model = Tours
-        fields = ['name', 'category', 'image', 'location']
+        fields = ['id', 'name', 'category', 'image', 'location']
 
 
 class TourListDetailAPI(ModelSerializer):
@@ -23,23 +23,23 @@ class TourListDetailAPI(ModelSerializer):
 class RecommendedTourListAPI(ModelSerializer):
     class Meta:
         model = Tours
-        fields = ['name', 'image', 'location']
+        fields = ['id', 'name', 'image', 'location']
 
 
 class TourInfoAPI(ModelSerializer):
     class Meta:
         model = Tours
-        fields = ['name', 'image', 'location', 'description']
+        fields = ['id', 'name', 'image', 'location', 'description']
 
 
 class ReservationAPI(ModelSerializer):
     class Meta:
         model = Reservation
-        fields = ['tour_name', 'phone_number', 'order_comment', 'people_num']
+        fields = ['id', 'tour_name', 'phone_number', 'order_comment', 'people_num']
 
 
 class ReviewListAPI(ModelSerializer):
     class Meta:
         model = Reviews
-        fields = ['nickname', 'image', 'review_text', 'created_at']
+        fields = ['id', 'nickname', 'image', 'review_text', 'created_at']
 
