@@ -26,18 +26,18 @@ SECRET_KEY = 'django-insecure--o8jb$!_g4rdg&fl-soi9b=)u^g^(5xl#1&37_gpcj@56k7n$p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['206.189.84.90', 'muha-backender.org.kg', '127.0.0.1', 'https://travel-app-neobis.vercel.app']
+ALLOWED_HOSTS = ['206.189.84.90', 'kunasyl-backender.org.kg', '127.0.0.1', 'https://travel-app-neobis.vercel.app']
 
 CORS_ALLOWED_ORIGINS = (
     'http://localhost:3000',
     'http://localhost:8000',
-    'https://muha-backender.org.kg',
+    'kunasyl-backender.org.kg',
     'http://localhost:5173',
     'https://travel-app-neobis.vercel.app',
 )
 
 CSRF_TRUSTED_ORIGINS = ['http://localhost:3000', 'http://localhost:5173',
-                        'http://localhost:8000', 'https://muha-backender.org.kg', 'https://travel-app-neobis.vercel.app']
+                        'http://localhost:8000', 'kunasyl-backender.org.kg', 'https://travel-app-neobis.vercel.app']
 # Application definition
 
 INSTALLED_APPS = [
